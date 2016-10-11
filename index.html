@@ -32,14 +32,14 @@ background-color: #ffffff;
   </head>
   <body ng-app="mainApp" ng-controller="Controller">
   <br>
-   <button ng-click='getTable()'> England </button>
-   <button ng-click=''> Germany </button>
-   <button ng-click=''> Holand </button>
-   <button ng-click=''> Spain </button>
-   <button ng-click=''> Serbia </button>
-   <p>{{answer}}</p>
+   <button ng-click="leagueTable('ENGLAND')"> England </button>
+   <button ng-click="leagueTable('GERMANY')"> Germany </button>
+   <button ng-click="leagueTable('FRANCE')"> France </button>
+   <button ng-click="leagueTable('SPAIN')"> Spain </button>
+   
+   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
