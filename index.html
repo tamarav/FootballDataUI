@@ -17,27 +17,63 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<style>
-table, th , td {
-border: 1px solid grey;
-border-collapse: collapse;
-padding: 5px;
-}
-table tr:nth-child(odd) {
-background-color: #f2f2f2;
-}
-table tr:nth-child(even) {
-background-color: #ffffff;
-}
+	body {
+    background-color: gray;
+	 background-image: url("images.jpg");
+
+	}
+	table, th{text-align : center} , td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
+	}
+	table tr:nth-child(odd) {
+	background-color: #f2f2f2;
+	}
+	table tr:nth-child(even) {
+	background-color: #ffffff;
+	}
 </style>
   </head>
   <body ng-app="mainApp" ng-controller="Controller">
   <br>
+  <div align="center">
+	<br>
    <button ng-click="leagueTable('ENGLAND')"> England </button>
    <button ng-click="leagueTable('GERMANY')"> Germany </button>
    <button ng-click="leagueTable('FRANCE')"> France </button>
    <button ng-click="leagueTable('SPAIN')"> Spain </button>
-   
-   
+   <button ng-click="leagueTable('ITALY')"> Italy</button>
+   </div>
+   <br><br>
+   <table border="1"  align="center">
+   <tr><td> position </td><td> team </td><td> played games </td><td> points </td><td> goals </td><td> goals against </td><td> goal difference </td><td> wins </td><td> draws </td><td> losses </td>
+   <td width="30"> home </td><td> goals </td><td> goals against </td><td> wins </td><td> draws </td><td>losses</td><td width="30"> away </td><td> goals </td><td> goals against </td><td> wins </td><td> draws </td><td>losses</td></tr>
+	<tr ng-repeat="x in teams">
+	<td >{{x.position}}</td>
+	<td>{{x.teamName}}</td>
+	<td>{{x.playedGames}}</td>
+	<td> {{x.points}}</td>
+	<td>{{x.goals}}</td>
+	<td>{{x.goalsAgainst}}</td>
+	<td>{{x.goalDifference}}</td>
+	<td>{{x.wins}}</td>
+	<td>{{x.draws}}</td>
+	<td>{{x.losses}}</td>
+	<td></td>
+	<td>{{x.home.goals}}</td>
+	<td>{{x.home.goalsAgainst}}</td>
+	<td>{{x.home.wins}}</td>
+	<td>{{x.home.draws}}</td>
+	<td>{{x.home.losses}}</td>
+	<td></td>
+	<td>{{x.away.goals}}</td>
+	<td>{{x.away.goalsAgainst}}</td>
+	<td>{{x.away.wins}}</td>
+	<td>{{x.away.draws}}</td>
+	<td>{{x.away.losses}}</td>
+	</tr>
+	</table>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -1,4 +1,5 @@
 angular.module('mainApp', []).controller('Controller', function($scope, $http){
+$scope.teams = [];
 $scope.leagueTable = function(country) {
 	var url;
 	switch(country)
@@ -13,7 +14,10 @@ $scope.leagueTable = function(country) {
 		url = 'http://api.football-data.org/v1/competitions/436/leagueTable';
 		break;
 		case "FRANCE":
-		url = 'http://api.football-data.org/v1/competitions/424/leagueTable';
+		url = 'http://api.football-data.org/v1/competitions/434/leagueTable';
+		break;
+		case "ITALY":
+		url='http://api.football-data.org/v1/competitions/438/leagueTable';
 		break;
 	}
 $http({
@@ -23,7 +27,12 @@ $http({
 	dataType: 'json',
 	type: 'GET',
 	}).then(function(response) {
-	console.log(response.data.standing[0].teamName);
+	var array_of_clubs = [];
+	angular.forEach(response.data.standing, function(item){
+	array_of_clubs.push(item);
+	})
+	$scope.teams = array_of_clubs;
+	console.log($scope.teams);
 	}, function(error){
 	console.log(error);
 	});
