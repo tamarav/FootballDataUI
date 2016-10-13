@@ -17,15 +17,19 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-app="mainApp" ng-controller="Controller">
+  <body ng-app="mainApp" ng-controller="Controller" ng-init="listOfLeagues()">
   <br>
   <div align="center">
+  
+	 <button ng-repeat="x in leagues" ng-click="leagueTable(x)">{{x.caption}}</button>
 	<br>
+	<!--
    <button ng-click="leagueTable('ENGLAND')"> England </button>
    <button ng-click="leagueTable('GERMANY')"> Germany </button>
    <button ng-click="leagueTable('FRANCE')"> France </button>
    <button ng-click="leagueTable('SPAIN')"> Spain </button>
    <button ng-click="leagueTable('ITALY')"> Italy</button>
+   -->
    </div>
    <br><br>
    <table border="1"  align="center">

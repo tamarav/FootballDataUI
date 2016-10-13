@@ -1,7 +1,10 @@
 angular.module('mainApp', []).controller('Controller', function($scope, $http){
 $scope.teams = [];
+$scope.leagues =[];
+$scope.europeanFrance = []
 $scope.leagueTable = function(country) {
 	var url;
+	if(country.caption != "European Championships France 2016"){
 	switch(country)
 	{
 		case "ENGLAND":	
@@ -19,8 +22,13 @@ $scope.leagueTable = function(country) {
 		case "ITALY":
 		url='http://api.football-data.org/v1/competitions/438/leagueTable';
 		break;
+		default:
+		console.log(country);
+		url = country._links.leagueTable.href;
+		break;
 	}
-$http({
+	
+	$http({
 	headers: 
 	{ 'X-Auth-Token': '53605e25707346f09ff7ddc20273519b' },
 	url,
@@ -36,5 +44,28 @@ $http({
 	}, function(error){
 	console.log(error);
 	});
+	}else{
+		
 	}
+	}
+
+	$scope.listOfLeagues = function(){
+	var url = 'http://api.football-data.org/v1/competitions/';
+	$http({
+		headers:
+		{ 	'X-Auth-Token': '53605e25707346f09ff7ddc20273519b' },
+		url,
+		dataType: 'json',
+		type: 'GET',
+	}).then(function(response){
+		var array_of_leagues = [];
+		angular.forEach(response.data, function(item){
+			array_of_leagues.push(item);
+		})
+		$scope.leagues = array_of_leagues;
+		console.log($scope.leagues);
+	}, function(error){
+		console.log(error);
+	});
+}
 });
