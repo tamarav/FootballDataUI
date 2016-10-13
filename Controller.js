@@ -63,7 +63,6 @@ $scope.leagueTable = function(country) {
 			array_of_leagues.push(item);
 		})
 		$scope.leagues = array_of_leagues;
-		console.log($scope.leagues);
 	}, function(error){
 		console.log(error);
 	});
