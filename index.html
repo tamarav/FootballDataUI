@@ -19,47 +19,67 @@
   </head>
   <body ng-app="mainApp" ng-controller="Controller" ng-init="listOfLeagues()">
   <br>
-  <div align="center">
-  
-	 <button ng-repeat="x in leagues" ng-click="leagueTable(x)">{{x.caption}}</button>
+  <div align="center" >
+  <div ng-if="errors.length > 0" class="alert alert-danger" role="alert">
+	<div ng-repeat="error in errors">{{error}}</div>
+  </div>
+	<button type="button" class="btn btn-primary" aria-haspopup="true" aria-expanded="false" ng-repeat="x in leagues" 
+		ng-click="leagueTable(x)">{{x.caption}}</button>
 	<br>
-	<!--
-   <button ng-click="leagueTable('ENGLAND')"> England </button>
-   <button ng-click="leagueTable('GERMANY')"> Germany </button>
-   <button ng-click="leagueTable('FRANCE')"> France </button>
-   <button ng-click="leagueTable('SPAIN')"> Spain </button>
-   <button ng-click="leagueTable('ITALY')"> Italy</button>
-   -->
    </div>
    <br><br>
-   <table border="1"  align="center">
-   <tr><td> position </td><td> team </td><td> played games </td><td> points </td><td> goals </td><td> goals against </td><td> goal difference </td><td> wins </td><td> draws </td><td> losses </td>
-   <td width="30"> home </td><td> goals </td><td> goals against </td><td> wins </td><td> draws </td><td>losses</td><td width="30"> away </td><td> goals </td><td> goals against </td><td> wins </td><td> draws </td><td>losses</td></tr>
-	<tr ng-repeat="x in teams">
-	<td >{{x.position}}</td>
-	<td>{{x.teamName}}</td>
-	<td>{{x.playedGames}}</td>
-	<td> {{x.points}}</td>
-	<td>{{x.goals}}</td>
-	<td>{{x.goalsAgainst}}</td>
-	<td>{{x.goalDifference}}</td>
-	<td>{{x.wins}}</td>
-	<td>{{x.draws}}</td>
-	<td>{{x.losses}}</td>
-	<td></td>
-	<td>{{x.home.goals}}</td>
-	<td>{{x.home.goalsAgainst}}</td>
-	<td>{{x.home.wins}}</td>
-	<td>{{x.home.draws}}</td>
-	<td>{{x.home.losses}}</td>
-	<td></td>
-	<td>{{x.away.goals}}</td>
-	<td>{{x.away.goalsAgainst}}</td>
-	<td>{{x.away.wins}}</td>
-	<td>{{x.away.draws}}</td>
-	<td>{{x.away.losses}}</td>
-	</tr>
-	</table>
+	<div class="container-fluid">
+   <div class="row">
+	   <div class="col-lg-12">
+		   <table class="table table-bordered table-hover table-striped text-center" ng-if="teams.length > 0 && !group_competition">
+			   <tr>
+					<td> position </td><td> team </td><td> played games </td><td> points </td><td> goals </td><td> goals against </td><td> goal difference </td><td> wins </td><td> draws </td><td> losses </td>
+					<td> home </td><td> goals </td><td> goals against </td><td> wins </td><td> draws </td><td>losses</td><td> away </td><td> goals </td><td> goals against </td><td> wins </td><td> draws </td><td>losses</td></tr>
+				<tr ng-repeat="x in teams">
+					<td >{{x.position}}.</td>
+					<td>{{x.teamName}}</td>
+					<td>{{x.playedGames}}</td>
+					<td> {{x.points}}</td>
+					<td>{{x.goals}}</td>
+					<td>{{x.goalsAgainst}}</td>
+					<td>{{x.goalDifference}}</td>
+					<td>{{x.wins}}</td>
+					<td>{{x.draws}}</td>
+					<td>{{x.losses}}</td>
+					<td></td>
+					<td>{{x.home.goals}}</td>
+					<td>{{x.home.goalsAgainst}}</td>
+					<td>{{x.home.wins}}</td>
+					<td>{{x.home.draws}}</td>
+					<td>{{x.home.losses}}</td>
+					<td></td>
+					<td>{{x.away.goals}}</td>
+					<td>{{x.away.goalsAgainst}}</td>
+					<td>{{x.away.wins}}</td>
+					<td>{{x.away.draws}}</td>
+					<td>{{x.away.losses}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	</div>
+	
+	<div ng-repeat="group in groups">
+		<h4>{{group[0].group}}</h4>
+		<table ng-show="group.length > 0 && group_competition" style="width: 200px">
+			<tr>
+				<th> rank </th><th> team </th>
+			</tr>
+			<tr ng-repeat="team in group">
+				<td>{{team.rank}}</td>
+				<td>{{team.team}}</td>
+			</tr>
+	
+		
+		</table>
+	</div>
+	
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
