@@ -85,15 +85,17 @@
 			</div>
 		
 			<div ng-repeat="group in groups">
-				<table ng-show="group.length > 0 && group_competition" style="width: 200px">
+				<table ng-show="group.length > 0 && group_competition">
 					<tr>
-						<th> rank </th><th> team </th>
+						<th> rank </th>
+						<th> team </th>
 					</tr>
 					<tr ng-repeat="team in group">
-						<td>{{team.rank}}</td>
-						<td>{{team.team}}</td>
+						<td>{{team.rank | uppercase}}</td>
+						<td>{{team.team | uppercase}}</td>
 					</tr>
 				</table>
+				<br>
 			</div>
 
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
