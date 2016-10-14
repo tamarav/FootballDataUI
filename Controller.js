@@ -17,8 +17,6 @@ angular.module('mainApp', []).controller('Controller', function($scope, $http){
 			dataType: 'json',
 			type: 'GET',
 		}).then(function(response) {
-			console.log(response.data);
-			var standing_array = [];
 			$scope.teams = [];
 			$scope.groups = [];
 			if(typeof response.data.standing != 'undefined') {
@@ -53,21 +51,5 @@ angular.module('mainApp', []).controller('Controller', function($scope, $http){
 		}, function(error){
 			$scope.errors.push(error.data.error);
 		});
-		var url = 'http://api.football-data.org/v1/competitions/';
-		$http({
-			headers:
-				{ 	'X-Auth-Token': '53605e25707346f09ff7ddc20273519b' },
-			url,
-				dataType: 'json',
-			type: 'GET',
-			}).then(function(response){
-				var array_of_leagues = [];
-				angular.forEach(response.data, function(item){
-				array_of_leagues.push(item);
-			})
-			$scope.leagues = array_of_leagues;
-			}, function(error){
-				$scope.errors.push(error.data.error);
-			});
 	}
 });

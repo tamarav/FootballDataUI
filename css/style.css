@@ -2,6 +2,10 @@ body {
     background-color: gray;
 	background-image: url("images.jpg");
 	}
+h4 {
+    color: white;
+	text-align:center;
+}	
 table, th{text-align : center} , td {
 	border: 1px solid grey;
 	border-collapse: collapse;
