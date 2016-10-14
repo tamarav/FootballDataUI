@@ -1,89 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Football Data UI</title>
-
-    <!-- Bootstrap -->
-    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body ng-app="mainApp" ng-controller="Controller" ng-init="listOfLeagues()">
-  <br>
-  <div align="center" >
-  <div ng-if="errors.length > 0" class="alert alert-danger" role="alert">
-	<div ng-repeat="error in errors">{{error}}</div>
-  </div>
-	<button type="button" class="btn btn-primary" aria-haspopup="true" aria-expanded="false" ng-repeat="x in leagues" 
-		ng-click="leagueTable(x)">{{x.caption}}</button>
-	<br>
-   </div>
-   <br><br>
-	<div class="container-fluid">
-   <div class="row">
-	   <div class="col-lg-12">
-		   <table class="table table-bordered table-hover table-striped text-center" ng-if="teams.length > 0 && !group_competition">
-			   <tr>
-					<td> position </td><td> team </td><td> played games </td><td> points </td><td> goals </td><td> goals against </td><td> goal difference </td><td> wins </td><td> draws </td><td> losses </td>
-					<td> home </td><td> goals </td><td> goals against </td><td> wins </td><td> draws </td><td>losses</td><td> away </td><td> goals </td><td> goals against </td><td> wins </td><td> draws </td><td>losses</td></tr>
-				<tr ng-repeat="x in teams">
-					<td >{{x.position}}.</td>
-					<td>{{x.teamName}}</td>
-					<td>{{x.playedGames}}</td>
-					<td> {{x.points}}</td>
-					<td>{{x.goals}}</td>
-					<td>{{x.goalsAgainst}}</td>
-					<td>{{x.goalDifference}}</td>
-					<td>{{x.wins}}</td>
-					<td>{{x.draws}}</td>
-					<td>{{x.losses}}</td>
-					<td></td>
-					<td>{{x.home.goals}}</td>
-					<td>{{x.home.goalsAgainst}}</td>
-					<td>{{x.home.wins}}</td>
-					<td>{{x.home.draws}}</td>
-					<td>{{x.home.losses}}</td>
-					<td></td>
-					<td>{{x.away.goals}}</td>
-					<td>{{x.away.goalsAgainst}}</td>
-					<td>{{x.away.wins}}</td>
-					<td>{{x.away.draws}}</td>
-					<td>{{x.away.losses}}</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	</div>
-	
-	<div ng-repeat="group in groups">
-		<table ng-show="group.length > 0 && group_competition" style="width: 200px">
-			<tr>
-				<th> rank </th><th> team </th>
-			</tr>
-			<tr ng-repeat="team in group">
-				<td>{{team.rank}}</td>
-				<td>{{team.team}}</td>
-			</tr>
-	
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+			<title>Football Data UI</title>
+			<!-- Bootstrap -->
+			<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+			<link href="css/style.css" rel="stylesheet">
+			<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+			<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+			<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<![endif]-->
+		</head>
+		<body ng-app="mainApp" ng-controller="Controller" ng-init="listOfLeagues()">
+			<br>
+			<div align="center" >
+				<div ng-if="errors.length > 0" class="alert alert-danger" role="alert">
+					<div ng-repeat="error in errors">{{error}}</div>
+					</div>
+					<button type="button" class="btn btn-primary" aria-haspopup="true" aria-expanded="false" ng-repeat="x in leagues" 
+					ng-click="leagueTable(x)">{{x.caption}}</button>
+					<br>
+			</div>
+			<br><br>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<table class="table table-bordered table-hover table-striped text-center" ng-if="teams.length > 0 && !group_competition">
+							<tr>
+								<td> position </td>
+								<td> team </td>
+								<td> played games </td>
+								<td> points </td>
+								<td> goals </td>
+								<td> goals against </td>
+								<td> goal difference </td>
+								<td> wins </td>
+								<td> draws </td>
+								<td> losses </td>
+								<td> home </td>
+								<td> goals </td>
+								<td> goals against </td>
+								<td> wins </td>
+								<td> draws </td>
+								<td>losses</td>
+								<td> away </td>
+								<td> goals </td>
+								<td> goals against </td>
+								<td> wins </td>
+								<td> draws </td>
+								<td>losses</td>
+							</tr>
+							<tr ng-repeat="x in teams">
+								<td >{{x.position}}.</td>
+								<td>{{x.teamName}}</td>
+								<td>{{x.playedGames}}</td>
+								<td> {{x.points}}</td>
+								<td>{{x.goals}}</td>
+								<td>{{x.goalsAgainst}}</td>
+								<td>{{x.goalDifference}}</td>
+								<td>{{x.wins}}</td>
+								<td>{{x.draws}}</td>
+								<td>{{x.losses}}</td>
+								<td></td>
+								<td>{{x.home.goals}}</td>
+								<td>{{x.home.goalsAgainst}}</td>
+								<td>{{x.home.wins}}</td>
+								<td>{{x.home.draws}}</td>
+								<td>{{x.home.losses}}</td>
+								<td></td>
+								<td>{{x.away.goals}}</td>
+								<td>{{x.away.goalsAgainst}}</td>
+								<td>{{x.away.wins}}</td>
+								<td>{{x.away.draws}}</td>
+								<td>{{x.away.losses}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
 		
-		</table>
-	</div>
-	
-	
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="Controller.js"></script>
-  </body>
-</html>
+			<div ng-repeat="group in groups">
+				<table ng-show="group.length > 0 && group_competition" style="width: 200px">
+					<tr>
+						<th> rank </th><th> team </th>
+					</tr>
+					<tr ng-repeat="team in group">
+						<td>{{team.rank}}</td>
+						<td>{{team.team}}</td>
+					</tr>
+				</table>
+			</div>
+
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<!-- Include all compiled plugins (below), or include individual files as needed -->
+			<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+			<script src="Controller.js"></script>
+		</body>
+	</html>
