@@ -49,7 +49,6 @@ angular.module('mainApp', []).controller('Controller', function($scope, $http){
 	}
 
 	$scope.listOfLeagues = function(){
-<<<<<<< HEAD
 		var url = 'http://api.football-data.org/v1/competitions/';
 		$http({
 			headers:
@@ -68,23 +67,4 @@ angular.module('mainApp', []).controller('Controller', function($scope, $http){
 			$scope.errors.push(error.data.error);
 		});
 	}
-=======
-	var url = 'http://api.football-data.org/v1/competitions/';
-	$http({
-		headers:
-		{ 	'X-Auth-Token': '53605e25707346f09ff7ddc20273519b' },
-		url,
-		dataType: 'json',
-		type: 'GET',
-	}).then(function(response){
-		var array_of_leagues = [];
-		angular.forEach(response.data, function(item){
-			array_of_leagues.push(item);
-		})
-		$scope.leagues = array_of_leagues;
-	}, function(error){
-		console.log(error);
-	});
-}
->>>>>>> 42ca0c618ac496f6ec211fb32ea98bbc12ccde7e
 });
