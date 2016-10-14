@@ -22,13 +22,13 @@ angular.module('mainApp', []).controller('Controller', function($scope, $http){
 			if(typeof response.data.standing != 'undefined') {
 				angular.forEach(response.data.standing, function(item){
 					$scope.teams.push(item);
-					$scope.group_competition = false;
 				});
+				$scope.group_competition = false;
 			} else if(typeof response.data.standings != 'undefined') {
 				angular.forEach(response.data.standings, function(item){
 					$scope.groups.push(item);
-					$scope.group_competition = true;
 				});
+				$scope.group_competition = true;
 			}
 			$scope.errors = [];
 		}, function(error){
