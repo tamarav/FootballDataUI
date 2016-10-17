@@ -29,33 +29,34 @@
 			<br><br>
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-12" >
+						<a  id="link"  href="teams.html"  target="_blank"> Couples for next matchday </a>
 						<table class="table table-bordered table-hover table-striped text-center" ng-if="teams.length > 0 && !group_competition">
-							<tr>
-								<td> POSITION </td>
-								<td> TEAM </td>
-								<td> PLAYED GAMES </td>
-								<td> POINTS </td>
-								<td> GOALS </td>
-								<td> GOALS AGAINST </td>
-								<td> GOAL DIFFERENCE </td>
-								<td> WINS </td>
-								<td> DRAWS </td>
-								<td> LOSSES </td>
-								<td> HOME </td>
-								<td> GOALS </td>
-								<td> GOALS AGAINST </td>
-								<td> WINS </td>
-								<td> DRAWS </td>
-								<td> LOSSES </td>
-								<td> AWAY </td>
-								<td> GOALS </td>
-								<td> GOALS AGAINST </td>
-								<td> WINS </td>
-								<td> DRAWS </td>
-								<td> LOSSES </td>
-							</tr>
-							<tr ng-repeat="x in teams">
+								<tr>
+									<th> POSITION </th>
+									<th> TEAM </th>
+									<th> PLAYED GAMES </th>
+									<th> POINTS </th>
+									<th> GOALS </th>
+									<th> GOALS AGAINST </th>
+									<th> GOAL DIFFERENCE </th>
+									<th> WINS </th>
+									<th> DRAWS </th>
+									<th> LOSSES </th>
+									<th> HOME </th>
+									<th> GOALS </th>
+									<th> GOALS AGAINST </th>
+									<th> WINS </th>
+									<th> DRAWS </th>
+									<th> LOSSES </th>
+									<th> AWAY </th>
+									<th> GOALS </th>
+									<th> GOALS AGAINST </th>
+									<th> WINS </th>
+									<th> DRAWS </th>
+									<th> LOSSES </th>
+								</tr>
+								<tr ng-repeat="x in teams">
 								<td >{{x.position}}.</td>
 								<td>{{x.teamName}}</td>
 								<td>{{x.playedGames}}</td>
@@ -114,6 +115,6 @@
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<!-- Include all compiled plugins (below), or include individual files as needed -->
 			<script src="bootstrap/dist/js/bootstrap.min.js"></script>
-			<script src="Controller.js"></script>
+			<script src="js/Controller.js"></script>
 		</body>
 	</html>

@@ -5,11 +5,17 @@ angular.module('mainApp', []).controller('Controller', function($scope, $http){
 	$scope.leagues =[];
 	$scope.errors = [];
 	$scope.group_competition = true;
-
+	$scope.selected_league;
+	$scope.selected_group;
+	
 	$scope.leagueTable = function(country) {
 		var url;
+		var next = parseInt(country.currentMatchday) + 1;
+		localStorage.setItem('url', country._links.fixtures.href);
+		localStorage.setItem('matchday', next);
 		url = country._links.leagueTable.href;
 		$scope.group_competition = false;
+		$scope.selected_league =  country;
 		$http({
 			headers:
 			{ 'X-Auth-Token': '53605e25707346f09ff7ddc20273519b' },

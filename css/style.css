@@ -5,6 +5,9 @@ body {
 h4 {
     color: white;
 	text-align:center;
+}
+a{
+    color: white;
 }	
 table, th{text-align : center} , td {
 	border: 1px solid grey;
