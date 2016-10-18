@@ -10,7 +10,6 @@ angular.module('mainApp', []).controller('Controller2', function($scope, $http){
 	$scope.next_match_couples = function() {
 		var url;
 		url = $scope.full_url;
-		console.log(url);
 		$http({
 			headers:
 			{ 'X-Auth-Token': '53605e25707346f09ff7ddc20273519b' },
@@ -20,7 +19,6 @@ angular.module('mainApp', []).controller('Controller2', function($scope, $http){
 		}).then(function(response) {
 			$scope.teams = [];
 			$scope.groups = [];
-			console.log(response.data.fixtures);
 			angular.forEach(response.data.fixtures, function(item){
 			$scope.groups.push(item);
 			});
