@@ -13,6 +13,7 @@ angular.module('mainApp', []).controller('Controller', function($scope, $http){
 		var next = parseInt(country.currentMatchday) + 1;
 		localStorage.setItem('url', country._links.fixtures.href);
 		localStorage.setItem('matchday', next);
+		localStorage.setItem('caption', country.caption);
 		url = country._links.leagueTable.href;
 		$scope.group_competition = false;
 		$scope.selected_league =  country;
