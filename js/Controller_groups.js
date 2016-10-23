@@ -34,6 +34,7 @@ angular.module('mainApp', []).controller('Controller2', function($scope, $http){
 		$scope.current_matchday = $scope.previous_matchday;
 		var url;
 		url = $scope.full_url_previous;
+		console.log(url);
 		$http({
 			headers:
 			{ 'X-Auth-Token': '53605e25707346f09ff7ddc20273519b' },
