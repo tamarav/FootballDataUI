@@ -11,8 +11,10 @@ angular.module('mainApp', []).controller('Controller', function($scope, $http){
 	$scope.leagueTable = function(country) {
 		var url;
 		var next = parseInt(country.currentMatchday) + 1;
+		var previous = parseInt(country.currentMatchday) - 1;
 		localStorage.setItem('url', country._links.fixtures.href);
-		localStorage.setItem('matchday', next);
+		localStorage.setItem('next_matchday', next);
+		localStorage.setItem('previous_matchday', previous);
 		localStorage.setItem('caption', country.caption);
 		url = country._links.leagueTable.href;
 		$scope.group_competition = false;

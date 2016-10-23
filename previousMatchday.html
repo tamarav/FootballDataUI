@@ -16,9 +16,10 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 			<![endif]-->
 		</head>
-		<body ng-app="mainApp" ng-controller="Controller2" ng-init="next_match_couples()">
+		<body ng-app="mainApp" ng-controller="Controller2" ng-init="previous_match_couples()">
 			<div>
 				<h4>{{caption}}</h4>
+				<h4>Matchday number {{current_matchday}}</h4>
 			</div>
 			<div ng-repeat="group in groups">
 				<div class="container-fluid">
