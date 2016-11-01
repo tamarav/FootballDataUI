@@ -42,6 +42,11 @@ angular.module('mainApp', [])
             templateUrl: 'templates/TableTemplate.html'
         };
     })
+    .directive('tableGroup', function() {
+        return {
+            templateUrl: 'templates/TableGroupTemplate.html'
+        }
+    })
     .controller('Controller', function ($scope, $http, Leagues) {
 
         $scope.teams = [];
