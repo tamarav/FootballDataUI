@@ -1,4 +1,15 @@
-angular.module('mainApp', []).controller('Controller2', function($scope, $http){
+angular.module('mainApp', [])
+	.directive('tableNext', function() {
+		return {
+			templateUrl: 'templates/NextMatchdayTableTemplate.html'
+		}
+	})
+	.directive('tablePrevious', function() {
+		return {
+			templateUrl: 'templates/PreviousMatchdayTableTemplate.html'
+		}
+	})
+	.controller('Controller2', function($scope, $http){
 	
 	$scope.selected_url= localStorage.getItem('url');
 	$scope.next_matchday = localStorage.getItem('next_matchday');

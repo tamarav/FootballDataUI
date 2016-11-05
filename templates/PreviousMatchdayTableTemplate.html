@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-repeat="group in groups">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12" >
+                <table class="table table-bordered table-hover table-striped text-center">
+                    <tr>
+                        <th> DATE </th>
+                        <th> MATCHDAY</th>
+                        <th> HOME TEAM NAME </th>
+                        <th> AWAY TEAM NAME </th>
+                        <th> GOALS HOME TEAM </th>
+                        <th> GOALS AWAY TEAM </th>
+                    </tr>
+                    <tr>
+                        <td>{{group.date}}</td>
+                        <td>{{group.matchday}}</td>
+                        <td>{{group.homeTeamName}}</td>
+                        <td>{{group.awayTeamName}}</td>
+                        <td>{{group.result.goalsHomeTeam}}</td>
+                        <td>{{group.result.goalsAwayTeam}}</td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
